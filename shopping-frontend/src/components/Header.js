@@ -5,7 +5,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap'
 const Header = () => {
   return (
     <header>
-      <Navbar bg='primary' expand='lg' collapseOnSelect>
+      <Navbar bg='primary' expand='lg' variant='dark' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>Ben's Store</Navbar.Brand>
