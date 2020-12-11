@@ -1,0 +1,31 @@
+{
+  "name": "ben-shopping-site",
+  "version": "1.0.0",
+  "description": "mern shopping app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node shopping-backend/server",
+    "server": "nodemon shopping-backend/server",
+    "client": "npm start --prefix shopping-frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjamiinn1/Ben-shopping-site.git"
+  },
+  "author": "Ben Mosley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benjamiinn1/Ben-shopping-site/issues"
+  },
+  "homepage": "https://github.com/benjamiinn1/Ben-shopping-site#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
