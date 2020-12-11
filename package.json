@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "mern shopping app",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node shopping-backend/server",
     "server": "nodemon shopping-backend/server",
