@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "0cd3f1c9-145f-4593-9379-e06edffb41ff",
+		"name": "benshop",
+		"description": "benshop api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET /api/products",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b49bbc62-8237-4394-999c-0068bb1ad533",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/products/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						},
+						"description": "Get all products"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/products/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7136e47c-30ae-4ecf-a203-4b22fff01543",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/products/5fd2eb0db6b9280a8c44d79c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"5fd2eb0db6b9280a8c44d79c"
+							]
+						},
+						"description": "Get single product by id"
+					},
+					"response": []
+				}
+			],
+			"description": "All routes that have to do with products",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "31d84f76-4947-4a9e-800f-a2f18d5db5d6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "19364d48-3c3f-4034-a5e0-4298860c08c6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
