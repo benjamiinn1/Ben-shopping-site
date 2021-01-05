@@ -14,6 +14,7 @@ const app = express()
 
 const PORT = process.env.PORT || 5000
 
+// added a comment
 app.get('/', (req, res) => {
   res.send('API is running...')
 })
