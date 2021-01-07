@@ -7,11 +7,13 @@ import {
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
   PRODUCT_DETAILS_FAIL,
+  PRODUCT_DETAILS_REMOVE,
 } from '../constants/productConstants'
 
 export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST })
+    dispatch({ type: PRODUCT_DETAILS_REMOVE })
 
     const { data } = await axios.get('/api/products')
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data })
