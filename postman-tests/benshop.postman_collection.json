@@ -15,7 +15,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b49bbc62-8237-4394-999c-0068bb1ad533",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -49,7 +48,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7136e47c-30ae-4ecf-a203-4b22fff01543",
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -63,14 +61,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/api/products/5fd2eb0db6b9280a8c44d79c",
+							"raw": "{{URL}}/api/products/5fd2eb0db6b9280a8c44d7a0",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"api",
 								"products",
-								"5fd2eb0db6b9280a8c44d79c"
+								"5fd2eb0db6b9280a8c44d7a0"
 							]
 						},
 						"description": "Get single product by id"
@@ -78,15 +76,125 @@
 					"response": []
 				}
 			],
-			"description": "All routes that have to do with products",
-			"protocolProfileBehavior": {}
+			"description": "All routes that have to do with products"
+		},
+		{
+			"name": "Users & Auth",
+			"item": [
+				{
+					"name": "POST /api/users/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\", pm.response.json().token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/users/login/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						},
+						"description": "authenticate user and get token"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/users/profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{URL}}/api/users/profile",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"profile"
+							]
+						},
+						"description": "get api for users"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Steve Smith\",\r\n    \"email\": \"steve@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": "Create new user"
+					},
+					"response": []
+				}
+			],
+			"description": "Routes that have to do with users and authentication"
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "31d84f76-4947-4a9e-800f-a2f18d5db5d6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -96,13 +204,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "19364d48-3c3f-4034-a5e0-4298860c08c6",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
